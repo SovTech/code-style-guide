@@ -1,4 +1,6 @@
-# Airbnb CSS-in-JavaScript Style Guide
+# SovTech CSS-in-JavaScript Style Guide
+
+Based off the AirBnB javascript style guide
 
 *A mostly reasonable approach to CSS-in-JavaScript*
 

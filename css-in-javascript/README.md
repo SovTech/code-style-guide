@@ -15,17 +15,17 @@ SovTech's approach to CSS-in-JS uses [Styled Components](https://styled-componen
 1. [Spacing](#spacing)
 1. [Inline](#inline)
 
-### Why CSS-in-JS?
+## Why CSS-in-JS?
 
 Because CSS-in-JS is awesome :raised_hands:
 
-### Why Styled Components?
+## Why Styled Components?
 
 There are a lof of CSS-in-JS frameworks out there. Styled Components are as close to industry standard as you are gonna get in this category.
 
 The component structure works well with React paradigms, it has nice theming and it's performance is acceptable.
 
-### Why Styled System?
+## Why Styled System?
 
 There are some aspects of using Styled Components that get a bit tedious. Styled System helps solve this problem and increases developer velocity.
 

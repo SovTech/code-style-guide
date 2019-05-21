@@ -49,7 +49,7 @@ Based off the AirBnB javascript style guide
     - `undefined`
     - `symbol`
 
-    ```javascript
+    ```typescript
     const foo = 1;
     let bar = foo;
 
@@ -67,7 +67,7 @@ Based off the AirBnB javascript style guide
     - `array`
     - `function`
 
-    ```javascript
+    ```typescript
     const foo = [1, 2];
     const bar = foo;
 
@@ -85,7 +85,7 @@ Based off the AirBnB javascript style guide
 
     > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
 
-    ```javascript
+    ```typescript
     // bad
     var a = 1;
     var b = 2;
@@ -100,7 +100,7 @@ Based off the AirBnB javascript style guide
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
 
-    ```javascript
+    ```typescript
     // bad
     var count = 1;
     if (true) {
@@ -117,7 +117,7 @@ Based off the AirBnB javascript style guide
   <a name="references--block-scope"></a><a name="2.3"></a>
   - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
 
-    ```javascript
+    ```typescript
     // const and let only exist in the blocks they are defined in.
     {
       let a = 1;
@@ -134,7 +134,7 @@ Based off the AirBnB javascript style guide
   <a name="objects--no-new"></a><a name="3.1"></a>
   - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
 
-    ```javascript
+    ```typescript
     // bad
     const item = new Object();
 
@@ -147,7 +147,7 @@ Based off the AirBnB javascript style guide
 
     > Why? They allow you to define all the properties of an object in one place.
 
-    ```javascript
+    ```typescript
 
     function getKey(k) {
       return `a key named ${k}`;
@@ -171,7 +171,7 @@ Based off the AirBnB javascript style guide
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
   - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
-    ```javascript
+    ```typescript
     // bad
     const atom = {
       value: 1,
@@ -196,7 +196,7 @@ Based off the AirBnB javascript style guide
 
     > Why? It is shorter and descriptive.
 
-    ```javascript
+    ```typescript
     const lukeSkywalker = 'Luke Skywalker';
 
     // bad
@@ -215,7 +215,7 @@ Based off the AirBnB javascript style guide
 
     > Why? It’s easier to tell which properties are using the shorthand.
 
-    ```javascript
+    ```typescript
     const anakinSkywalker = 'Anakin Skywalker';
     const lukeSkywalker = 'Luke Skywalker';
 
@@ -245,7 +245,7 @@ Based off the AirBnB javascript style guide
 
     > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
-    ```javascript
+    ```typescript
     // bad
     const bad = {
       'foo': 3,
@@ -266,7 +266,7 @@ Based off the AirBnB javascript style guide
 
     > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
 
-    ```javascript
+    ```typescript
     // bad
     console.log(object.hasOwnProperty(key));
 
@@ -284,7 +284,7 @@ Based off the AirBnB javascript style guide
   <a name="objects--rest-spread"></a>
   - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
-    ```javascript
+    ```typescript
     // very bad
     const original = { a: 1, b: 2 };
     const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
@@ -308,7 +308,7 @@ Based off the AirBnB javascript style guide
   <a name="arrays--literals"></a><a name="4.1"></a>
   - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
 
-    ```javascript
+    ```typescript
     // bad
     const items = new Array();
 
@@ -319,7 +319,7 @@ Based off the AirBnB javascript style guide
   <a name="arrays--push"></a><a name="4.2"></a>
   - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
 
-    ```javascript
+    ```typescript
     const someStack = [];
 
     // bad
@@ -332,7 +332,7 @@ Based off the AirBnB javascript style guide
   <a name="es6-array-spreads"></a><a name="4.3"></a>
   - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
 
-    ```javascript
+    ```typescript
     // bad
     const len = items.length;
     const itemsCopy = [];
@@ -350,7 +350,7 @@ Based off the AirBnB javascript style guide
   <a name="arrays--from-iterable"></a><a name="4.4"></a>
   - [4.4](#arrays--from-iterable) To convert an iterable object to an array, use spreads `...` instead of [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
-    ```javascript
+    ```typescript
     const foo = document.querySelectorAll('.foo');
 
     // good
@@ -363,7 +363,7 @@ Based off the AirBnB javascript style guide
   <a name="arrays--from-array-like"></a>
   - [4.5](#arrays--from-array-like) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) for converting an array-like object to an array.
 
-    ```javascript
+    ```typescript
     const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
 
     // bad
@@ -376,7 +376,7 @@ Based off the AirBnB javascript style guide
   <a name="arrays--mapping"></a>
   - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
 
-    ```javascript
+    ```typescript
     // bad
     const baz = [...foo].map(bar);
 
@@ -387,7 +387,7 @@ Based off the AirBnB javascript style guide
   <a name="arrays--callback-return"></a><a name="4.5"></a>
   - [4.7](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
-    ```javascript
+    ```typescript
     // good
     [1, 2, 3].map((x) => {
       const y = x + 1;
@@ -432,7 +432,7 @@ Based off the AirBnB javascript style guide
   <a name="arrays--bracket-newline"></a>
   - [4.8](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
 
-    ```javascript
+    ```typescript
     // bad
     const arr = [
       [0, 1], [2, 3], [4, 5],
@@ -475,7 +475,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Destructuring saves you from creating temporary references for those properties.
 
-    ```javascript
+    ```typescript
     // bad
     function getFullName(user) {
       const firstName = user.firstName;
@@ -499,7 +499,7 @@ Based off the AirBnB javascript style guide
   <a name="destructuring--array"></a><a name="5.2"></a>
   - [5.2](#destructuring--array) Use array destructuring. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
-    ```javascript
+    ```typescript
     const arr = [1, 2, 3, 4];
 
     // bad
@@ -515,7 +515,7 @@ Based off the AirBnB javascript style guide
 
     > Why? You can add new properties over time or change the order of things without breaking call sites.
 
-    ```javascript
+    ```typescript
     // bad
     function processInput(input) {
       // then a miracle occurs
@@ -542,7 +542,7 @@ Based off the AirBnB javascript style guide
   <a name="strings--quotes"></a><a name="6.1"></a>
   - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html)
 
-    ```javascript
+    ```typescript
     // bad
     const name = "Capt. Janeway";
 
@@ -558,7 +558,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
-    ```javascript
+    ```typescript
     // bad
     const errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
@@ -579,7 +579,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
-    ```javascript
+    ```typescript
     // bad
     function sayHi(name) {
       return 'How are you, ' + name + '?';
@@ -609,7 +609,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
 
-    ```javascript
+    ```typescript
     // bad
     const foo = '\'this\' \i\s \"quoted\"';
 
@@ -627,7 +627,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
-    ```javascript
+    ```typescript
     // bad
     function foo() {
       // ...
@@ -650,7 +650,7 @@ Based off the AirBnB javascript style guide
 
     > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
 
-    ```javascript
+    ```typescript
     // immediately-invoked function expression (IIFE)
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
@@ -663,7 +663,7 @@ Based off the AirBnB javascript style guide
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
   - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
 
-    ```javascript
+    ```typescript
     // bad
     if (currentUser) {
       function test() {
@@ -683,7 +683,7 @@ Based off the AirBnB javascript style guide
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
   - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
-    ```javascript
+    ```typescript
     // bad
     function foo(name, options, arguments) {
       // ...
@@ -700,7 +700,7 @@ Based off the AirBnB javascript style guide
 
     > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
 
-    ```javascript
+    ```typescript
     // bad
     function concatenateAll() {
       const args = Array.prototype.slice.call(arguments);
@@ -716,7 +716,7 @@ Based off the AirBnB javascript style guide
   <a name="es6-default-parameters"></a><a name="7.7"></a>
   - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
 
-    ```javascript
+    ```typescript
     // really bad
     function handleThings(opts) {
       // No! We shouldn’t mutate function arguments.
@@ -745,7 +745,7 @@ Based off the AirBnB javascript style guide
 
     > Why? They are confusing to reason about.
 
-    ```javascript
+    ```typescript
     var b = 1;
     // bad
     function count(a = b++) {
@@ -760,7 +760,7 @@ Based off the AirBnB javascript style guide
   <a name="functions--defaults-last"></a><a name="7.9"></a>
   - [7.9](#functions--defaults-last) Always put default parameters last.
 
-    ```javascript
+    ```typescript
     // bad
     function handleThings(opts = {}, name) {
       // ...
@@ -777,7 +777,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
 
-    ```javascript
+    ```typescript
     // bad
     var add = new Function('a', 'b', 'return a + b');
 
@@ -790,7 +790,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
-    ```javascript
+    ```typescript
     // bad
     const f = function(){};
     const g = function (){};
@@ -806,7 +806,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
-    ```javascript
+    ```typescript
     // bad
     function f1(obj) {
       obj.key = 1;
@@ -823,7 +823,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
 
-    ```javascript
+    ```typescript
     // bad
     function f1(a) {
       a = 1;
@@ -851,7 +851,7 @@ Based off the AirBnB javascript style guide
 
     > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
 
-    ```javascript
+    ```typescript
     // bad
     const x = [1, 2, 3, 4, 5];
     console.log.apply(console, x);
@@ -870,7 +870,7 @@ Based off the AirBnB javascript style guide
   <a name="functions--signature-invocation-indentation"></a>
   - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
 
-    ```javascript
+    ```typescript
     // bad
     function foo(bar,
                  baz,
@@ -911,7 +911,7 @@ Based off the AirBnB javascript style guide
 
     > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
 
-    ```javascript
+    ```typescript
     // bad
     [1, 2, 3].map(function (x) {
       const y = x + 1;
@@ -930,7 +930,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
-    ```javascript
+    ```typescript
     // bad
     [1, 2, 3].map(number => {
       const nextNumber = number + 1;
@@ -975,7 +975,7 @@ Based off the AirBnB javascript style guide
 
     > Why? It shows clearly where the function starts and ends.
 
-    ```javascript
+    ```typescript
     // bad
     ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
@@ -997,7 +997,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Less visual clutter.
 
-    ```javascript
+    ```typescript
     // bad
     [1, 2, 3].map((x) => x * x);
 
@@ -1025,7 +1025,7 @@ Based off the AirBnB javascript style guide
   <a name="arrows--confusing"></a><a name="8.5"></a>
   - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](https://eslint.org/docs/rules/no-confusing-arrow)
 
-    ```javascript
+    ```typescript
     // bad
     const itemHeight = item => item.height <= 256 ? item.largeSize : item.smallSize;
 
@@ -1045,7 +1045,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--implicit-arrow-linebreak"></a>
   - [8.6](#whitespace--implicit-arrow-linebreak) Enforce the location of arrow function bodies with implicit returns. eslint: [`implicit-arrow-linebreak`](https://eslint.org/docs/rules/implicit-arrow-linebreak)
 
-    ```javascript
+    ```typescript
     // bad
     foo =>
       bar;
@@ -1070,7 +1070,7 @@ Based off the AirBnB javascript style guide
 
     > Why? `class` syntax is more concise and easier to reason about.
 
-    ```javascript
+    ```typescript
     // bad
     function Queue(contents = []) {
       this.queue = [...contents];
@@ -1099,7 +1099,7 @@ Based off the AirBnB javascript style guide
 
     > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
 
-    ```javascript
+    ```typescript
     // bad
     const inherits = require('inherits');
     function PeekableQueue(contents) {
@@ -1121,7 +1121,7 @@ Based off the AirBnB javascript style guide
   <a name="constructors--chaining"></a><a name="9.3"></a>
   - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
 
-    ```javascript
+    ```typescript
     // bad
     Jedi.prototype.jump = function () {
       this.jumping = true;
@@ -1158,7 +1158,7 @@ Based off the AirBnB javascript style guide
   <a name="constructors--tostring"></a><a name="9.4"></a>
   - [9.4](#constructors--tostring) It’s okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
 
-    ```javascript
+    ```typescript
     class Jedi {
       constructor(options = {}) {
         this.name = options.name || 'no name';
@@ -1177,7 +1177,7 @@ Based off the AirBnB javascript style guide
   <a name="constructors--no-useless"></a><a name="9.5"></a>
   - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
 
-    ```javascript
+    ```typescript
     // bad
     class Jedi {
       constructor() {}
@@ -1208,7 +1208,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
 
-    ```javascript
+    ```typescript
     // bad
     class Foo {
       bar() { return 1; }
@@ -1235,7 +1235,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Modules are the future, let’s start using the future now.
 
-    ```javascript
+    ```typescript
     // bad
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
     module.exports = AirbnbStyleGuide.es6;
@@ -1254,7 +1254,7 @@ Based off the AirBnB javascript style guide
 
     > Why? This makes sure you have a single default export.
 
-    ```javascript
+    ```typescript
     // bad
     import * as AirbnbStyleGuide from './AirbnbStyleGuide';
 
@@ -1267,7 +1267,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
 
-    ```javascript
+    ```typescript
     // bad
     // filename es6.js
     export { es6 as default } from './AirbnbStyleGuide';
@@ -1283,7 +1283,7 @@ Based off the AirBnB javascript style guide
  eslint: [`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)
     > Why? Having multiple lines that import from the same path can make code harder to maintain.
 
-    ```javascript
+    ```typescript
     // bad
     import foo from 'foo';
     // … some other imports … //
@@ -1304,7 +1304,7 @@ Based off the AirBnB javascript style guide
  eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
     > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
 
-    ```javascript
+    ```typescript
     // bad
     let foo = 3;
     export { foo };
@@ -1319,7 +1319,7 @@ Based off the AirBnB javascript style guide
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
     > Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.
 
-    ```javascript
+    ```typescript
     // bad
     export function foo() {}
 
@@ -1332,7 +1332,7 @@ Based off the AirBnB javascript style guide
  eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
     > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
 
-    ```javascript
+    ```typescript
     // bad
     import foo from 'foo';
     foo.init();
@@ -1351,7 +1351,7 @@ Based off the AirBnB javascript style guide
 
     > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
 
-    ```javascript
+    ```typescript
     // bad
     import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
 
@@ -1370,7 +1370,7 @@ Based off the AirBnB javascript style guide
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
     > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
 
-    ```javascript
+    ```typescript
     // bad
     import fooSass from 'css!sass!foo.scss';
     import barCss from 'style!css!bar.css';
@@ -1391,7 +1391,7 @@ Based off the AirBnB javascript style guide
 
     > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
 
-    ```javascript
+    ```typescript
     const numbers = [1, 2, 3, 4, 5];
 
     // bad
@@ -1438,7 +1438,7 @@ Based off the AirBnB javascript style guide
 
     > Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
 
-    ```javascript
+    ```typescript
     // bad
     function * foo() {
       // ...
@@ -1501,7 +1501,7 @@ Based off the AirBnB javascript style guide
   <a name="properties--dot"></a><a name="12.1"></a>
   - [12.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](https://eslint.org/docs/rules/dot-notation.html)
 
-    ```javascript
+    ```typescript
     const luke = {
       jedi: true,
       age: 28,
@@ -1517,7 +1517,7 @@ Based off the AirBnB javascript style guide
   <a name="properties--bracket"></a><a name="12.2"></a>
   - [12.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
 
-    ```javascript
+    ```typescript
     const luke = {
       jedi: true,
       age: 28,
@@ -1532,7 +1532,7 @@ Based off the AirBnB javascript style guide
   <a name="es2016-properties--exponentiation-operator"></a>
   - [12.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. eslint: [`no-restricted-properties`](https://eslint.org/docs/rules/no-restricted-properties).
 
-    ```javascript
+    ```typescript
     // bad
     const binary = Math.pow(2, 10);
 
@@ -1560,7 +1560,7 @@ Based off the AirBnB javascript style guide
 
     > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
-    ```javascript
+    ```typescript
     // bad
     const items = getItems(),
         goSportsTeam = true,
@@ -1583,7 +1583,7 @@ Based off the AirBnB javascript style guide
 
     > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
-    ```javascript
+    ```typescript
     // bad
     let i, len, dragonball,
         items = getItems(),
@@ -1609,7 +1609,7 @@ Based off the AirBnB javascript style guide
 
     > Why? `let` and `const` are block scoped and not function scoped.
 
-    ```javascript
+    ```typescript
     // bad - unnecessary function call
     function checkName(hasName) {
       const name = getName();
@@ -1647,7 +1647,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Chaining variable assignments creates implicit global variables.
 
-    ```javascript
+    ```typescript
     // bad
     (function example() {
       // JavaScript interprets this as
@@ -1680,7 +1680,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
-    ```javascript
+    ```typescript
     // bad
 
     const array = [1, 2, 3];
@@ -1714,7 +1714,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Linebreaks surrounding `=` can obfuscate the value of an assignment.
 
-    ```javascript
+    ```typescript
     // bad
     const foo =
       superLongLongLongLongLongLongLongLongFunctionName();
@@ -1737,7 +1737,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
 
-    ```javascript
+    ```typescript
     // bad
 
     var some_unused_var = 42;
@@ -1779,7 +1779,7 @@ Based off the AirBnB javascript style guide
   <a name="hoisting--about"></a><a name="14.1"></a>
   - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their closest enclosing function scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone). It’s important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
-    ```javascript
+    ```typescript
     // we know this wouldn’t work (assuming there
     // is no notDefined global variable)
     function example() {
@@ -1815,7 +1815,7 @@ Based off the AirBnB javascript style guide
   <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
   - [14.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
 
-    ```javascript
+    ```typescript
     function example() {
       console.log(anonymous); // => undefined
 
@@ -1830,7 +1830,7 @@ Based off the AirBnB javascript style guide
   <a name="hoisting--named-expresions"></a><a name="hoisting--named-expressions"></a><a name="14.3"></a>
   - [14.3](#hoisting--named-expressions) Named function expressions hoist the variable name, not the function name or the function body.
 
-    ```javascript
+    ```typescript
     function example() {
       console.log(named); // => undefined
 
@@ -1859,7 +1859,7 @@ Based off the AirBnB javascript style guide
   <a name="hoisting--declarations"></a><a name="14.4"></a>
   - [14.4](#hoisting--declarations) Function declarations hoist their name and the function body.
 
-    ```javascript
+    ```typescript
     function example() {
       superPower(); // => Flying
 
@@ -1888,7 +1888,7 @@ Based off the AirBnB javascript style guide
     - **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
     - **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
-    ```javascript
+    ```typescript
     if ([0] && []) {
       // true
       // an array (even an empty one) is an object, objects will evaluate to true
@@ -1898,7 +1898,7 @@ Based off the AirBnB javascript style guide
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
   - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
-    ```javascript
+    ```typescript
     // bad
     if (isValid === true) {
       // ...
@@ -1938,7 +1938,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
 
-    ```javascript
+    ```typescript
     // bad
     switch (foo) {
       case 1:
@@ -1984,7 +1984,7 @@ Based off the AirBnB javascript style guide
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
   - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
 
-    ```javascript
+    ```typescript
     // bad
     const foo = maybe1 > maybe2
       ? "bar"
@@ -2005,7 +2005,7 @@ Based off the AirBnB javascript style guide
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
   - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
 
-    ```javascript
+    ```typescript
     // bad
     const foo = a ? a : b;
     const bar = c ? true : false;
@@ -2022,7 +2022,7 @@ Based off the AirBnB javascript style guide
 
     > Why? This improves readability and clarifies the developer’s intention.
 
-    ```javascript
+    ```typescript
     // bad
     const foo = a && b < 0 || c > 0 || d + 1 === 0;
 
@@ -2057,7 +2057,7 @@ Based off the AirBnB javascript style guide
   <a name="blocks--braces"></a><a name="16.1"></a>
   - [16.1](#blocks--braces) Use braces with all multi-line blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
 
-    ```javascript
+    ```typescript
     // bad
     if (test)
       return false;
@@ -2082,7 +2082,7 @@ Based off the AirBnB javascript style guide
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
   - [16.2](#blocks--cuddled-elses) If you’re using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html)
 
-    ```javascript
+    ```typescript
     // bad
     if (test) {
       thing1();
@@ -2104,7 +2104,7 @@ Based off the AirBnB javascript style guide
   <a name="blocks--no-else-return"></a><a name="16.3"></a>
   - [16.3](#blocks--no-else-return) If an `if` block always executes a `return` statement, the subsequent `else` block is unnecessary. A `return` in an `else if` block following an `if` block that contains a `return` can be separated into multiple `if` blocks. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
 
-    ```javascript
+    ```typescript
     // bad
     function foo() {
       if (x) {
@@ -2175,7 +2175,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Requiring operators at the beginning of the line keeps the operators aligned and follows a pattern similar to method chaining. This also improves readability by making it easier to visually follow complex logic.
 
-    ```javascript
+    ```typescript
     // bad
     if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
       thing1();
@@ -2227,7 +2227,7 @@ Based off the AirBnB javascript style guide
   <a name="control-statement--value-selection"></a><a name="control-statements--value-selection"></a>
   - [17.2](#control-statements--value-selection) Don't use selection operators in place of control statements.
 
-    ```javascript
+    ```typescript
     // bad
     !isRunning && startRunning();
 
@@ -2244,7 +2244,7 @@ Based off the AirBnB javascript style guide
   <a name="comments--multiline"></a><a name="17.1"></a>
   - [18.1](#comments--multiline) Use `/** ... */` for multi-line comments.
 
-    ```javascript
+    ```typescript
     // bad
     // make() returns a new element
     // based on the passed in tag name
@@ -2274,7 +2274,7 @@ Based off the AirBnB javascript style guide
   <a name="comments--singleline"></a><a name="17.2"></a>
   - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
 
-    ```javascript
+    ```typescript
     // bad
     const active = true;  // is current tab
 
@@ -2313,7 +2313,7 @@ Based off the AirBnB javascript style guide
   <a name="comments--spaces"></a>
   - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
 
-    ```javascript
+    ```typescript
     // bad
     //is current tab
     const active = true;
@@ -2353,7 +2353,7 @@ Based off the AirBnB javascript style guide
   <a name="comments--fixme"></a><a name="17.4"></a>
   - [18.5](#comments--fixme) Use `// FIXME:` to annotate problems.
 
-    ```javascript
+    ```typescript
     class Calculator extends Abacus {
       constructor() {
         super();
@@ -2367,7 +2367,7 @@ Based off the AirBnB javascript style guide
   <a name="comments--todo"></a><a name="17.5"></a>
   - [18.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
 
-    ```javascript
+    ```typescript
     class Calculator extends Abacus {
       constructor() {
         super();
@@ -2385,7 +2385,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--spaces"></a><a name="18.1"></a>
   - [19.1](#whitespace--spaces) Use soft tabs (space character) set to 2 spaces. eslint: [`indent`](https://eslint.org/docs/rules/indent.html)
 
-    ```javascript
+    ```typescript
     // bad
     function foo() {
     ∙∙∙∙let name;
@@ -2405,7 +2405,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
   - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html)
 
-    ```javascript
+    ```typescript
     // bad
     function test(){
       console.log('test');
@@ -2432,7 +2432,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
   - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html)
 
-    ```javascript
+    ```typescript
     // bad
     if(isJedi) {
       fight ();
@@ -2457,7 +2457,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--infix-ops"></a><a name="18.4"></a>
   - [19.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops.html)
 
-    ```javascript
+    ```typescript
     // bad
     const x=y+5;
 
@@ -2468,14 +2468,14 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
   - [19.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
 
-    ```javascript
+    ```typescript
     // bad
     import { es6 } from './AirbnbStyleGuide';
       // ...
     export default es6;
     ```
 
-    ```javascript
+    ```typescript
     // bad
     import { es6 } from './AirbnbStyleGuide';
       // ...
@@ -2483,7 +2483,7 @@ Based off the AirBnB javascript style guide
     ↵
     ```
 
-    ```javascript
+    ```typescript
     // good
     import { es6 } from './AirbnbStyleGuide';
       // ...
@@ -2494,7 +2494,7 @@ Based off the AirBnB javascript style guide
   - [19.6](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
     emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
 
-    ```javascript
+    ```typescript
     // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
@@ -2537,7 +2537,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
   - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement.
 
-    ```javascript
+    ```typescript
     // bad
     if (foo) {
       return bar;
@@ -2595,7 +2595,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
   - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html)
 
-    ```javascript
+    ```typescript
     // bad
     function bar() {
 
@@ -2637,7 +2637,7 @@ Based off the AirBnB javascript style guide
   - [19.9](#whitespace--no-multiple-blanks) Do not use multiple blank lines to pad your code. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
 
     <!-- markdownlint-disable MD012 -->
-    ```javascript
+    ```typescript
     // bad
     class Person {
       constructor(fullName, email, birthday) {
@@ -2690,7 +2690,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--in-parens"></a><a name="18.9"></a>
   - [19.10](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html)
 
-    ```javascript
+    ```typescript
     // bad
     function bar( foo ) {
       return foo;
@@ -2715,7 +2715,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--in-brackets"></a><a name="18.10"></a>
   - [19.11](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html)
 
-    ```javascript
+    ```typescript
     // bad
     const foo = [ 1, 2, 3 ];
     console.log(foo[ 0 ]);
@@ -2728,7 +2728,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
   - [19.12](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
 
-    ```javascript
+    ```typescript
     // bad
     const foo = {clark: 'kent'};
 
@@ -2741,7 +2741,7 @@ Based off the AirBnB javascript style guide
 
     > Why? This ensures readability and maintainability.
 
-    ```javascript
+    ```typescript
     // bad
     const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
 
@@ -2769,7 +2769,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--block-spacing"></a>
   - [19.14](#whitespace--block-spacing) Require consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line. eslint: [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
 
-    ```javascript
+    ```typescript
     // bad
     function foo() {return true;}
     if (foo) { bar = 0;}
@@ -2782,7 +2782,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--comma-spacing"></a>
   - [19.15](#whitespace--comma-spacing) Avoid spaces before commas and require a space after commas. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
 
-    ```javascript
+    ```typescript
     // bad
     var foo = 1,bar = 2;
     var arr = [1 , 2];
@@ -2795,7 +2795,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--computed-property-spacing"></a>
   - [19.16](#whitespace--computed-property-spacing) Enforce spacing inside of computed property brackets. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
 
-    ```javascript
+    ```typescript
     // bad
     obj[foo ]
     obj[ 'foo']
@@ -2812,7 +2812,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--func-call-spacing"></a>
   - [19.17](#whitespace--func-call-spacing) Avoid spaces between functions and their invocations. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
 
-    ```javascript
+    ```typescript
     // bad
     func ();
 
@@ -2826,7 +2826,7 @@ Based off the AirBnB javascript style guide
   <a name="whitespace--key-spacing"></a>
   - [19.18](#whitespace--key-spacing) Enforce spacing between keys and values in object literal properties. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
 
-    ```javascript
+    ```typescript
     // bad
     var obj = { "foo" : 42 };
     var obj2 = { "foo":42 };
@@ -2842,7 +2842,7 @@ Based off the AirBnB javascript style guide
   - [19.20](#whitespace--no-multiple-empty-lines) Avoid multiple empty lines and only allow one newline at the end of files. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
 
     <!-- markdownlint-disable MD012 -->
-    ```javascript
+    ```typescript
     // bad
     var x = 1;
 
@@ -2864,7 +2864,7 @@ Based off the AirBnB javascript style guide
   <a name="commas--leading-trailing"></a><a name="19.1"></a>
   - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html)
 
-    ```javascript
+    ```typescript
     // bad
     const story = [
         once
@@ -2918,7 +2918,7 @@ Based off the AirBnB javascript style guide
     };
     ```
 
-    ```javascript
+    ```typescript
     // bad
     const hero = {
       firstName: 'Dana',
@@ -3001,7 +3001,7 @@ Based off the AirBnB javascript style guide
 
     > Why? When JavaScript encounters a line break without a semicolon, it uses a set of rules called [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) to determine whether or not it should regard that line break as the end of a statement, and (as the name implies) place a semicolon into your code before the line break if it thinks so. ASI contains a few eccentric behaviors, though, and your code will break if JavaScript misinterprets your line break. These rules will become more complicated as new features become a part of JavaScript. Explicitly terminating your statements and configuring your linter to catch missing semicolons will help prevent you from encountering issues.
 
-    ```javascript
+    ```typescript
     // bad - raises exception
     const luke = {}
     const leia = {}
@@ -3052,7 +3052,7 @@ Based off the AirBnB javascript style guide
   <a name="coercion--strings"></a><a name="21.2"></a>
   - [22.2](#coercion--strings)  Strings: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
-    ```javascript
+    ```typescript
     // => this.reviewScore = 9;
 
     // bad
@@ -3071,7 +3071,7 @@ Based off the AirBnB javascript style guide
   <a name="coercion--numbers"></a><a name="21.3"></a>
   - [22.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](https://eslint.org/docs/rules/radix) [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
-    ```javascript
+    ```typescript
     const inputValue = '4';
 
     // bad
@@ -3096,7 +3096,7 @@ Based off the AirBnB javascript style guide
   <a name="coercion--comment-deviations"></a><a name="21.4"></a>
   - [22.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you’re doing.
 
-    ```javascript
+    ```typescript
     // good
     /**
      * parseInt was the reason my code was slow.
@@ -3109,7 +3109,7 @@ Based off the AirBnB javascript style guide
   <a name="coercion--bitwise"></a><a name="21.5"></a>
   - [22.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
-    ```javascript
+    ```typescript
     2147483647 >> 0; // => 2147483647
     2147483648 >> 0; // => -2147483648
     2147483649 >> 0; // => -2147483647
@@ -3118,7 +3118,7 @@ Based off the AirBnB javascript style guide
   <a name="coercion--booleans"></a><a name="21.6"></a>
   - [22.6](#coercion--booleans) Booleans: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
-    ```javascript
+    ```typescript
     const age = 0;
 
     // bad
@@ -3138,7 +3138,7 @@ Based off the AirBnB javascript style guide
   <a name="naming--descriptive"></a><a name="22.1"></a>
   - [23.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](https://eslint.org/docs/rules/id-length)
 
-    ```javascript
+    ```typescript
     // bad
     function q() {
       // ...
@@ -3153,7 +3153,7 @@ Based off the AirBnB javascript style guide
   <a name="naming--camelCase"></a><a name="22.2"></a>
   - [23.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html)
 
-    ```javascript
+    ```typescript
     // bad
     const OBJEcttsssss = {};
     const this_is_my_object = {};
@@ -3167,7 +3167,7 @@ Based off the AirBnB javascript style guide
   <a name="naming--PascalCase"></a><a name="22.3"></a>
   - [23.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](https://eslint.org/docs/rules/new-cap.html)
 
-    ```javascript
+    ```typescript
     // bad
     function user(options) {
       this.name = options.name;
@@ -3194,7 +3194,7 @@ Based off the AirBnB javascript style guide
 
     > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
 
-    ```javascript
+    ```typescript
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
@@ -3212,7 +3212,7 @@ Based off the AirBnB javascript style guide
   <a name="naming--self-this"></a><a name="22.5"></a>
   - [23.5](#naming--self-this) Don’t save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind).
 
-    ```javascript
+    ```typescript
     // bad
     function foo() {
       const self = this;
@@ -3240,7 +3240,7 @@ Based off the AirBnB javascript style guide
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
   - [23.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
 
-    ```javascript
+    ```typescript
     // file 1 contents
     class CheckBox {
       // ...
@@ -3276,7 +3276,7 @@ Based off the AirBnB javascript style guide
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
   - [23.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function’s name.
 
-    ```javascript
+    ```typescript
     function makeStyleGuide() {
       // ...
     }
@@ -3287,7 +3287,7 @@ Based off the AirBnB javascript style guide
   <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
   - [23.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
 
-    ```javascript
+    ```typescript
     const AirbnbStyleGuide = {
       es6: {
       },
@@ -3301,7 +3301,7 @@ Based off the AirBnB javascript style guide
 
     > Why? Names are for readability, not to appease a computer algorithm.
 
-    ```javascript
+    ```typescript
     // bad
     import SmsContainer from './containers/SmsContainer';
 
@@ -3339,7 +3339,7 @@ Based off the AirBnB javascript style guide
     - What about all `const` variables? - This is unnecessary, so uppercasing should not be used for constants within a file. It should be used for exported constants however.
     - What about exported objects? - Uppercase at the top level of export  (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
 
-    ```javascript
+    ```typescript
     // bad
     const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
 
@@ -3380,7 +3380,7 @@ Based off the AirBnB javascript style guide
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
   - [24.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use `getVal()` and `setVal('hello')`.
 
-    ```javascript
+    ```typescript
     // bad
     class Dragon {
       get age() {
@@ -3407,7 +3407,7 @@ Based off the AirBnB javascript style guide
   <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
   - [24.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
 
-    ```javascript
+    ```typescript
     // bad
     if (!dragon.age()) {
       return false;
@@ -3422,7 +3422,7 @@ Based off the AirBnB javascript style guide
   <a name="accessors--consistent"></a><a name="23.4"></a>
   - [24.4](#accessors--consistent) It’s okay to create `get()` and `set()` functions, but be consistent.
 
-    ```javascript
+    ```typescript
     class Jedi {
       constructor(options = {}) {
         const lightsaber = options.lightsaber || 'blue';
@@ -3446,7 +3446,7 @@ Based off the AirBnB javascript style guide
   <a name="events--hash"></a><a name="24.1"></a>
   - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash")  instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
-    ```javascript
+    ```typescript
     // bad
     $(this).trigger('listingUpdated', listing.id);
 
@@ -3459,7 +3459,7 @@ Based off the AirBnB javascript style guide
 
     prefer:
 
-    ```javascript
+    ```typescript
     // good
     $(this).trigger('listingUpdated', { listingID: listing.id });
 
@@ -3471,82 +3471,6 @@ Based off the AirBnB javascript style guide
     ```
 
   **[⬆ back to top](#table-of-contents)**
-
-## jQuery
-
-  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`.
-
-    ```javascript
-    // bad
-    const sidebar = $('.sidebar');
-
-    // good
-    const $sidebar = $('.sidebar');
-
-    // good
-    const $sidebarBtn = $('.sidebar-btn');
-    ```
-
-  <a name="jquery--cache"></a><a name="25.2"></a>
-  - [26.2](#jquery--cache) Cache jQuery lookups.
-
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
-
-      // ...
-
-      $('.sidebar').css({
-        'background-color': 'pink',
-      });
-    }
-
-    // good
-    function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
-
-      // ...
-
-      $sidebar.css({
-        'background-color': 'pink',
-      });
-    }
-    ```
-
-  <a name="jquery--queries"></a><a name="25.3"></a>
-  - [26.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-
-  <a name="jquery--find"></a><a name="25.4"></a>
-  - [26.4](#jquery--find) Use `find` with scoped jQuery object queries.
-
-    ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
-    // good
-    $('.sidebar ul').hide();
-
-    // good
-    $('.sidebar > ul').hide();
-
-    // good
-    $sidebar.find('ul').hide();
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## ECMAScript 5 Compatibility
-
-  <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
-
-**[⬆ back to top](#table-of-contents)**
 
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6+ (ES 2015+) Styles
@@ -3588,7 +3512,7 @@ Based off the AirBnB javascript style guide
     > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
     > If this behavior is desired, make it explicit.
 
-    ```javascript
+    ```typescript
     // bad
     isNaN('1.2'); // false
     isNaN('1.2.3'); // true
@@ -3605,7 +3529,7 @@ Based off the AirBnB javascript style guide
     > Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
     > If this behavior is desired, make it explicit.
 
-    ```javascript
+    ```typescript
     // bad
     isFinite('2e3'); // true
 
@@ -3621,7 +3545,7 @@ Based off the AirBnB javascript style guide
   <a name="testing--yup"></a><a name="28.1"></a>
   - [30.1](#testing--yup) **Yup.**
 
-    ```javascript
+    ```typescript
     function foo() {
       return true;
     }
@@ -3632,7 +3556,7 @@ Based off the AirBnB javascript style guide
     - Whichever testing framework you use, you should be writing tests!
     - Strive to write many small pure functions, and minimize where mutations occur.
     - Be cautious about stubs and mocks - they can make your tests more brittle.
-    - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) and [`jest`](https://www.npmjs.com/package/jest) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
+    - We primarily use Jest at SovTech
     - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
     - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 

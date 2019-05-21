@@ -83,31 +83,31 @@ colors: {
 
 - Only use colors from the theme. It is very unlikely that you will use a colour in a single place.
 
-  ```typescript
-  // bad
-  export const StyledButton = styled.button<ButtonProps>`
-    color: '#00EE77';
-  `;
+```typescript
+// bad
+export const StyledButton = styled.button<ButtonProps>`
+  color: '#00EE77';
+`;
 
-  // good
-  export const StyledButton = styled.button<ButtonProps>`
-    color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
-  `;
-  ```
+// good
+export const StyledButton = styled.button<ButtonProps>`
+  color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
+`;
+```
 
 - Only use fonts from the theme.
 
-  ```typescript
-  // bad
-  export const StyledButton = styled.button<ButtonProps>`
-    font: arial;
-  `;
+```typescript
+// bad
+export const StyledButton = styled.button<ButtonProps>`
+  font: arial;
+`;
 
-  // good
-  export const StyledButton = styled.button<ButtonProps>`
-    color: ${({ theme }: { theme: Theme }) => theme.fontFamily};
-  `;
-  ```
+// good
+export const StyledButton = styled.button<ButtonProps>`
+  color: ${({ theme }: { theme: Theme }) => theme.fontFamily};
+`;
+```
 
 - Use [breakpoints from Styled System](https://styled-system.com/theme-specification/#breakpoints)
 
@@ -132,26 +132,26 @@ breakpoints: ['40em', '52em', '64em'];
 
 - Leave a blank line between adjacent blocks at the same indentation level.
 
-  > Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
+> Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
 
-  ```typescript
-  // bad
-  export const StyledButton = styled.button<ButtonProps>`
-    display: 'inline-block',
-      '::before': {
-      content: "''";
-    }
-  `;
+```typescript
+// bad
+export const StyledButton = styled.button<ButtonProps>`
+  display: 'inline-block',
+    '::before': {
+    content: "''";
+  }
+`;
 
-  // good
-  export const StyledButton = styled.button<ButtonProps>`
-    display: 'inline-block',
-    
-      '::before': {
-      content: "''";
-    }
-  `;
-  ```
+// good
+export const StyledButton = styled.button<ButtonProps>`
+  display: 'inline-block',
+  
+    '::before': {
+    content: "''";
+  }
+`;
+```
 
 ## Inline
 

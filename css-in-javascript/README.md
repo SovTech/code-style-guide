@@ -6,15 +6,32 @@ SovTech's approach to CSS-in-JS uses [Styled Components](https://styled-componen
 
 ## Table of Contents
 
+1. [Why CSS-in-JS](#why-css-in-js)
+1. [Why Styled Components](#why-styled-components)
+1. [Why Styled System](#why-styled-system)
 1. [Theme](#theme)
 1. [Naming](#component-naming)
 1. [Style Location](#style-location)
 1. [Spacing](#spacing)
 1. [Inline](#inline)
 
+### Why CSS-in-JS?
+
+Because CSS-in-JS is awesome :raised_hands:
+
+### Why Styled Components?
+
+There are a lof of CSS-in-JS frameworks out there. Styled Components are as close to industry standard as you are gonna get in this category.
+
+The component structure works well with React paradigms, it has nice theming and it's performance is acceptable.
+
+### Why Styled System?
+
+There are some aspects of using Styled Components that get a bit tedious. Styled System helps solve this problem and increases developer velocity.
+
 ## Theme
 
-- Theme should be located in it's own package. 
+- Theme should be located in it's own package.
 
 > Why? This means a single theme can be shared across multiple clients. Even if there is only a single client this pattern will allow for greater extensibility in future if required.
 
@@ -44,9 +61,25 @@ const theme: Theme = {
 };
 ```
 
-- Colour names **should not be abstract**. 
+- Colour names **should not be abstract**.
 
 > Color names should be practical and based on where and how they will be used in the application.
+
+```typescript
+// bad
+colors: {
+  blood: '#FFF',
+  fire: '#FFF',
+  treeSap: '#FFF'
+};
+
+// good
+colors: {
+  text: '#FFF',
+  cardBackground: '#FFF',
+  header: '#FFF'
+};
+```
 
 - Only use colors from the theme. It is very unlikely that you will use a colour in a single place.
 
@@ -80,7 +113,6 @@ const theme: Theme = {
 
 - Only use [media queries defined in the theme](https://styled-system.com/theme-specification/#media-queries) - these should be based off the breakpoints
 
-
 ```typescript
 breakpoints: ['40em', '52em', '64em'];
 ```
@@ -93,8 +125,8 @@ breakpoints: ['40em', '52em', '64em'];
 
 - Define Styled Components related to a component in a `styles.ts` file.
 
-> If the components are going to be reused they should have their own `Component/xxx` folder. 
-If styles are only going to be used in one component they should live in that component's `styles.ts` file.
+> If the components are going to be reused they should have their own `Component/xxx` folder.
+> If styles are only going to be used in one component they should live in that component's `styles.ts` file.
 
 ## Spacing
 
@@ -126,4 +158,4 @@ If styles are only going to be used in one component they should live in that co
 - Use inline styles with caution
 - Passing props to a component using Styled System is preferred
 
-> Why? Inline styles can lead to many variations of the same component. Other than margins for aligning components you shouldn't have one-off variations of the same component. If you are going to use the variation more than once it would be better to extend the component and use that to prevent unwanted variations/changes. 
+> Why? Inline styles can lead to many variations of the same component. Other than margins for aligning components you shouldn't have one-off variations of the same component. If you are going to use the variation more than once it would be better to extend the component and use that to prevent unwanted variations/changes.

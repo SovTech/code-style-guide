@@ -1547,7 +1547,7 @@ Based off the AirBnB javascript style guide
   <a name="variables--const"></a><a name="13.1"></a>
   - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
 
-    ```javascript
+    ```typescript
     // bad
     superPower = new SuperPower();
 

@@ -1,10 +1,14 @@
 # SovTech Code Style Guide
 
-Based off the AirBnB javascript style guide
+Based off the AirBnB javascript style guide: _A mostly reasonable approach to JavaScript_
 
-_A mostly reasonable approach to JavaScript_
+### How to use this?
 
-Guides:
+Read through the [Guides](#guides) and familiarise yourself with the content there.
+
+Copy the [Linting Setups](#linting-setup) to your project
+
+### Guides
 
 - [Typescript](typescript/)
 - [React](react/)
@@ -19,13 +23,17 @@ Install the relevant packages listed below and copy the `.eslintrc.json`, `.edit
 CRA comes with eslint and some relevant packages already installed
 
 ```
-yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb eslint-config-prettier eslint-config-react eslint-plugin-prettier 
+yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb eslint-config-prettier eslint-config-react eslint-plugin-prettier
 ```
 
 #### Other Typescript projects
 
 ```
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb eslint-config-prettier eslint-plugin-prettier 
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb eslint-config-prettier eslint-plugin-prettier
 ```
 
 Remove the references to React in the `.eslintrc.json` file
+
+### Something wrong?
+
+Please send feedback via slack!

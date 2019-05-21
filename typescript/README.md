@@ -541,6 +541,8 @@ Based off the AirBnB javascript style guide
 
   <a name="strings--quotes"></a><a name="6.1"></a>
   - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html)
+  
+  Note: this differs from the standard Prettier config. Overwritten in `.prettierrc`
 
     ```typescript
     // bad

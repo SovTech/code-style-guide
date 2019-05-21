@@ -6,7 +6,7 @@ Based off the AirBnB javascript style guide: _A mostly reasonable approach to Ja
 
 Read through the [Guides](#guides) and familiarise yourself with the content there.
 
-Copy the [Linting Setups](#linting-setup) to your project
+Perform the [Setups](#setup) steps on your project
 
 ### Guides
 
@@ -14,9 +14,11 @@ Copy the [Linting Setups](#linting-setup) to your project
 - [React](react/)
 - [CSS-in-JavaScript](css-in-javascript/)
 
-### Linting setup
+### Setup
 
-Install the relevant packages listed below and copy the `.eslintrc.json`, `.editorconfig` and `.prettierrc` files
+Install the relevant packages listed below and copy the `.eslintrc.json`, `.editorconfig` and `.prettierrc` files to your project root.
+
+If you have a mono-repo setup you will need to copy these files to the package roots as well.
 
 #### Create React App projects
 

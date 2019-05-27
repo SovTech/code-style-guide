@@ -11,9 +11,14 @@ Based off the AirBnB javascript style guide: _A mostly reasonable approach to Ja
 ## Style Guides
 
 ### [Javascript](javascript/)
+
 ### [Typescript](typescript/)
+
 ### [React](react/)
+
 ### [CSS-in-JavaScript](css-in-javascript/)
+
+### [Commit messages](commit-messages/)
 
 ## Linter and formatter setup
 

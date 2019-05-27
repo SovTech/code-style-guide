@@ -4,12 +4,13 @@ Based off the AirBnB javascript style guide: _A mostly reasonable approach to Ja
 
 ### How to use this?
 
-Read through the [Guides](#guides) and familiarise yourself with the content there.
+1. Read through the [Guides](#guides) and familiarise yourself with the content there.
 
-Perform the [Setups](#setup) steps on your project
+2. Perform the [Setups](#setup) steps on your project
 
 ### Guides
 
+- [Javascript](javascript/)
 - [Typescript](typescript/)
 - [React](react/)
 - [CSS-in-JavaScript](css-in-javascript/)

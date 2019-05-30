@@ -1,4 +1,4 @@
-# SovTech Git Commit Message Guide
+# SovTech PR Description Guide
 
 Use the template below as your default PR description
 

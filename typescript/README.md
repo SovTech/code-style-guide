@@ -5,6 +5,7 @@
 ## Table of Contents
 
   1. [Types](#types)
+  1. [TS Ignore comments](#ignore-comments)
 
 
 ## Types
@@ -34,3 +35,21 @@
 Types and Interfaces should be defined first
 
 Types from packages should be used where applicable
+
+Prefer Product[] over Array<Product>
+
+## Ignore comments
+
+// @ts-ignore comments must always have the reason why they were added in the code
+
+  ```typescript
+  // bad
+  // @ts-ignore
+   handleChange={this.handleChange}
+   
+  // good
+  // @ts-ignore - ignored because custom input isn't typed
+   handleChange={this.handleChange}
+  ```
+
+**[⬆ back to top](#table-of-contents)**

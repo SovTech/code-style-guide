@@ -10,7 +10,8 @@ This style guide is mostly based on the standards that are currently prevalent i
 
   1. [Basic Rules](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-  1. [Mixins](#mixins)
+  1. [Destructuring](#destructuring)
+  1. [Pure Functions](#pure-functions)
   1. [Naming](#naming)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
@@ -23,6 +24,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Methods](#methods)
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
+  1. [Mixins](#mixins)
 
 ## Basic Rules
 
@@ -54,7 +56,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     }
     ```
 
-    And if you don’t have state or refs, prefer normal functions (not arrow functions) over classes:
+    And if you don’t have state or refs, prefer arrow functions (not normal functions) over classes:
 
     ```jsx
     // bad
@@ -64,22 +66,54 @@ This style guide is mostly based on the standards that are currently prevalent i
       }
     }
 
-    // bad (relying on function name inference is discouraged)
-    const Listing = ({ hello }) => (
-      <div>{hello}</div>
-    );
-
-    // good
+    // bad
     function Listing({ hello }) {
       return <div>{hello}</div>;
     }
+
+    // good
+    const Listing = ({ hello }) => (
+      <div>{hello}</div>
+    );
+    ```
+    
+## Destructuring
+
+Always destructure props and state
+
+    ```typescript
+    // bad
+    function Listing(props) {
+      return <div>{props.hello}</div>;
+    }
+    
+    // better
+    const Listing = props => {
+      const { hello } = props;
+      return <div>{hello}</div>;
+    };
+    
+    // best
+    const Listing = ({ hello }) => <div>{hello}</div>;
     ```
 
-## Mixins
+## Pure functions 
 
-  - [Do not use mixins](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html).
+Use pure functions whenever possible in your components. Pure functions are easier to test, to move to utils folders if the function needs to be reused and to memoize.
 
-  > Why? Mixins introduce implicit dependencies, cause name clashes, and cause snowballing complexity. Most use cases for mixins can be accomplished in better ways via components, higher-order components, or utility modules.
+To achieve this pass state and prop values as function arguments instead of referencing the class values.
+
+```typescript
+    // bad
+    function calculateTotal() {
+      return this.props.moneyIn + this.state.tax;
+    }
+    
+    //good
+    function calculateTotal(moneyIn, tax) {
+      return moneyIn + tax;
+    }
+``` 
 
 ## Naming
 
@@ -715,3 +749,8 @@ We don’t recommend using indexes for keys if the order of items may change.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
+## Mixins
+
+  - [Do not use mixins](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html).
+
+  > Why? Mixins introduce implicit dependencies, cause name clashes, and cause snowballing complexity. Most use cases for mixins can be accomplished in better ways via components, higher-order components, or utility modules.

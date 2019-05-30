@@ -20,6 +20,10 @@ Based off the AirBnB javascript style guide: _A mostly reasonable approach to Ja
 
 ### [Commit messages](commit-messages/)
 
+### [PR Descriptions](pr-descriptions/)
+
+### [Tests](tests/)
+
 ## Linter and formatter setup
 
 Install the relevant packages listed below and copy the `.eslintrc.json`, `.editorconfig` and `.prettierrc` files to your project root.
@@ -45,3 +49,11 @@ Remove the references to React in the `.eslintrc.json` file
 ## Something wrong?
 
 Please send feedback via slack!
+
+## Further reading
+
+[Google JS Style Guide](https://google.github.io/styleguide/jsguide.html)
+
+[Idomatic JS](https://github.com/rwaldron/idiomatic.js)
+
+[React Typescript Cheatsheet](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet)
